@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - 4000:4000
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rrobles
+      - MYSQL_DB=pruebainfodesign
+    links:
+      - db
+
+
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: pruebainfodesign
+      MYSQL_ROOT_PASSWORD: rrobles
+    volumes:
+      - ./pruebainfodesign.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 3306:3306
+    
+
