@@ -1,7 +1,7 @@
 version: '3'
 services:
-  web:
-    build: .
+  backend:
+    build: ./backend
     ports:
       - 4000:4000
     environment:
@@ -12,6 +12,11 @@ services:
     links:
       - db
 
+  frontend:
+    build: ./frontend
+
+    ports:
+      - 3000:3000
 
   db:
     image: mysql:latest
@@ -21,8 +26,6 @@ services:
       MYSQL_DATABASE: pruebainfodesign
       MYSQL_ROOT_PASSWORD: rrobles
     volumes:
-      - ./pruebainfodesign.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./backend/pruebainfodesign.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 3306:3306
-    
-

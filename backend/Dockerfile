@@ -10,17 +10,17 @@ COPY package*.json ./
 # Install the app's dependencies in the container
 RUN npm install
 
-# Create a src directory in the container
-RUN mkdir src
+# Create a backend directory in the container
+# RUN mkdir
 
-# Copy the rest of the app's files from your host to the src directory in the container
-# COPY src/* ./src/
-# Copy the rest of the app's files from your host to the src directory in the container
-COPY src ./src/
+# Copy the rest of the app's files from your host to the backend directory in the container
+# COPY backend/* ./backend/
+# Copy the rest of the app's files from your host to the backend directory in the container
+COPY . ./
 
 
-# Inform Docker that the container listens on port 3000 at runtime
-EXPOSE 3000
+# Inform Docker that the container listens on port 4000 at runtime
+EXPOSE 4000
 
 # Define the command to run when the container starts
 CMD [ "npm", "run", "dev" ]
