@@ -13,7 +13,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the app's files from your host to the /app directory in the container
-COPY . ./
+COPY . .
 
 # Inform Docker that the container listens on port 3000 at runtime
 EXPOSE 3000

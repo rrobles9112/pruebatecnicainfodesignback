@@ -16,7 +16,7 @@ RUN npm install
 # Copy the rest of the app's files from your host to the backend directory in the container
 # COPY backend/* ./backend/
 # Copy the rest of the app's files from your host to the backend directory in the container
-COPY . ./
+COPY . .
 
 
 # Inform Docker that the container listens on port 4000 at runtime

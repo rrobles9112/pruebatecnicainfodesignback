@@ -1,0 +1,10 @@
+# Ignorar los node_modules
+node_modules
+
+# Ignorar los archivos temporales
+*.tmp
+*.log
+
+# Ignorar los archivos de configuración
+.env
+.gitignore
